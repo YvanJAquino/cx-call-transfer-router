@@ -13,7 +13,7 @@
 # limitations under the License.
 
 steps:
-- id: docker-build-push-cx-wi-pubdef
+- id: docker-build-push-cx-call-transfer-router
   waitFor: ['-']
   name: gcr.io/cloud-builders/docker
   dir: service
@@ -24,7 +24,7 @@ steps:
       docker build -t gcr.io/$PROJECT_ID/${_SERVICE} . &&
       docker push gcr.io/$PROJECT_ID/${_SERVICE}
 
-- id: gcloud-run-deploy-cx-wi-pubdef
+- id: gcloud-run-deploy-cx-call-transfer-router
   waitFor: ['docker-build-push-cx-wi-pubdef']
   name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: bash
@@ -45,7 +45,7 @@ steps:
         --allow-unauthenticated
 
 substitutions:
-  _SERVICE: cx-wi-pubdef
+  _SERVICE: cx-call-transfer-router
   _REGION: us-central1
   _COLLECTION: lawyers
   _DOCUMENT: lines

@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 package main
 
 import (
@@ -30,6 +29,5 @@ func TestCache(t *testing.T) {
 		Document:   Document,
 	})
 	defer close()
-	t.Log(cache.Get("Yvan Aquino"))
-
+	t.Log(cache.Get("Lawyer-Name-Goes-Here"))
 }
